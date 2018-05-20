@@ -32,3 +32,7 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[metadata.heroku]
+  root-package = "github.com/heroku/fixture"
+  go-version = "go1.10.2"
