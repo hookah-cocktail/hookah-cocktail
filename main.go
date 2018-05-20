@@ -4,8 +4,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	_ "github.com/heroku/x/hmetrics/onload"
 )
 
 const assetsDir = "assets"
@@ -16,6 +14,7 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+	log.Printf("Starting server on port %s", port)
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir(assetsDir))))
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal("ListenAndServe: ", err)
